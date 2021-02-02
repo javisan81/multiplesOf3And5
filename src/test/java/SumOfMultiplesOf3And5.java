@@ -12,8 +12,9 @@ public class SumOfMultiplesOf3And5 {
     private int calculateSumOfMultiplesOfN(int number, int multiple) {
         int numLoops = (((number / multiple) + 1) / 2);
         int sum = number * numLoops;
-        if (numLoops % 2 == 1) {
-            sum += (number - (numLoops*multiple));
+        int multipleInTheMiddle = numLoops * multiple;
+        if (number/2 == multipleInTheMiddle) {
+            sum += (number - multipleInTheMiddle);
         }
         return sum;
     }
@@ -62,5 +63,13 @@ public class SumOfMultiplesOf3And5 {
         assertEquals(sumNumbersMultipleOf3And5Below(9), 23);
     }
 
+    @Test
+    public void Ten() {
+        assertEquals(sumNumbersMultipleOf3And5Below(10), 33);
+    }
 
+    @Test
+    public void Twelve() {
+        assertEquals(sumNumbersMultipleOf3And5Below(12), 45);
+    }
 }
