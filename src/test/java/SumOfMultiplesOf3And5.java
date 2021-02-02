@@ -20,6 +20,7 @@ public class SumOfMultiplesOf3And5 {
             multiplesDecreasingStartingFromNumerToZero -= multiple;
             numLoops++;
         }
+        assertEquals(numLoops, ((number / multiple)+1)/2);
         if (numLoops % 2 == 1) {
             sum += multiplesDecreasingStartingFromNumerToZero;
         }
