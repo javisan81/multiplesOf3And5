@@ -4,33 +4,24 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SumOfMultiplesOf3And5 {
-    private int closesMultipleOf3(int number) {
-        return number - (number % 3);
+
+
+    private int closesMultipleOfN(int number, int multiple) {
+        return number - (number % multiple);
     }
 
-    private int closesMultipleOf5(int number) {
-        return number - (number % 5);
-    }
-
-    private int calculateSumOfMultiplesOf3(int number) {
+    private int calculateSumOfMultiplesOfN(int number, int multiple) {
         int sum = 0;
-        for (int i = number; i > 0; i = i - 3) {
+        for (int i = number; i > 0; i = i - multiple) {
             sum += i;
         }
         return sum;
     }
 
-    private int calculateSumOfMultiplesOf5(int number) {
-        int sum = 0;
-        for (int i = number; i > 0; i = i - 5) {
-            sum += i;
-        }
-        return sum;
-    }
 
     private int sumNumbersMultipleOf3And5Below(int number) {
-        int sum = calculateSumOfMultiplesOf3(closesMultipleOf3(number));
-        sum += calculateSumOfMultiplesOf5(closesMultipleOf5(number));
+        int sum = calculateSumOfMultiplesOfN(closesMultipleOfN(number, 3), 3);
+        sum += calculateSumOfMultiplesOfN(closesMultipleOfN(number, 5), 5);
 
         return sum;
     }
