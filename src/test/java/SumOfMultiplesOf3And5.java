@@ -82,4 +82,9 @@ public class SumOfMultiplesOf3And5 {
         assertEquals(sumNumbersMultipleOf3And5Below(18), 60);
     }
 
+    @Test
+    public void OneThousand() {
+        assertEquals(sumNumbersMultipleOf3And5Below(1000), 233168);
+    }
+
 }
