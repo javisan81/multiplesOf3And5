@@ -23,8 +23,7 @@ public class SumOfMultiplesOf3And5 {
     private int sumNumbersMultipleOf3And5Below(int number) {
         int sum = calculateSumOfMultiplesOfN(closesMultipleOfN(number, 3), 3);
         sum += calculateSumOfMultiplesOfN(closesMultipleOfN(number, 5), 5);
-
-        return sum;
+        return sum - calculateSumOfMultiplesOfN(closesMultipleOfN(number, 15), 15);
     }
 
 
@@ -71,5 +70,10 @@ public class SumOfMultiplesOf3And5 {
     @Test
     public void Twelve() {
         assertEquals(sumNumbersMultipleOf3And5Below(12), 45);
+    }
+
+    @Test
+    public void Fifteen() {
+        assertEquals(sumNumbersMultipleOf3And5Below(15), 60);
     }
 }
