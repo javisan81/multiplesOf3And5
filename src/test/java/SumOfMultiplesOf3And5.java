@@ -10,23 +10,10 @@ public class SumOfMultiplesOf3And5 {
     }
 
     private int calculateSumOfMultiplesOfN(int number, int multiple) {
-        int sum = 0;
-        int numLoops = 0;
-        int multiplesStartingFromZeroToNumber = 0;
-        int multiplesDecreasingStartingFromNumerToZero = number;
-        while (multiplesStartingFromZeroToNumber < multiplesDecreasingStartingFromNumerToZero) {
-            sum += multiplesStartingFromZeroToNumber + multiplesDecreasingStartingFromNumerToZero;
-            multiplesStartingFromZeroToNumber += multiple;
-            multiplesDecreasingStartingFromNumerToZero -= multiple;
-            numLoops++;
-        }
-
-        numLoops = (((number / multiple) + 1) / 2);
-        sum = number * numLoops;
-        assertEquals(numLoops, ((number / multiple) + 1) / 2);
+        int numLoops = (((number / multiple) + 1) / 2);
+        int sum = number * numLoops;
         if (numLoops % 2 == 1) {
-            assertEquals(multiplesDecreasingStartingFromNumerToZero, (number - (numLoops*multiple)));
-            sum += multiplesDecreasingStartingFromNumerToZero;
+            sum += (number - (numLoops*multiple));
         }
         return sum;
     }
