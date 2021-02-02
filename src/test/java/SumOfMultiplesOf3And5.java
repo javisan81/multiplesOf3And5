@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SumOfMultiplesOf3And5 {
 
@@ -12,8 +11,17 @@ public class SumOfMultiplesOf3And5 {
 
     private int calculateSumOfMultiplesOfN(int number, int multiple) {
         int sum = 0;
-        for (int i = number; i > 0; i = i - multiple) {
-            sum += i;
+        int numLoops = 0;
+        int multiplesStartingFromZeroToNumber = 0;
+        int multiplesDecreasingStartingFromNumerToZero = number;
+        while (multiplesStartingFromZeroToNumber < multiplesDecreasingStartingFromNumerToZero) {
+            sum += multiplesStartingFromZeroToNumber + multiplesDecreasingStartingFromNumerToZero;
+            multiplesStartingFromZeroToNumber += multiple;
+            multiplesDecreasingStartingFromNumerToZero -= multiple;
+            numLoops++;
+        }
+        if (numLoops % 2 == 1) {
+            sum += multiplesDecreasingStartingFromNumerToZero;
         }
         return sum;
     }
