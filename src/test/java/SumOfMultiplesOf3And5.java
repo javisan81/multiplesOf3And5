@@ -8,6 +8,10 @@ public class SumOfMultiplesOf3And5 {
         return number - (number % 3);
     }
 
+    private int closesMultipleOf5(int number) {
+        return number - (number % 5);
+    }
+
     private int calculateSumOfMultiplesOf3(int number) {
         int sum = 0;
         for (int i = number; i > 0; i = i - 3) {
@@ -16,12 +20,17 @@ public class SumOfMultiplesOf3And5 {
         return sum;
     }
 
+    private int calculateSumOfMultiplesOf5(int number) {
+        int sum = 0;
+        for (int i = number; i > 0; i = i - 5) {
+            sum += i;
+        }
+        return sum;
+    }
+
     private int sumNumbersMultipleOf3And5Below(int number) {
         int sum = calculateSumOfMultiplesOf3(closesMultipleOf3(number));
-
-        if (number <= 6 && number > 4) {
-            sum += 5;
-        }
+        sum += calculateSumOfMultiplesOf5(closesMultipleOf5(number));
 
         return sum;
     }
@@ -56,5 +65,11 @@ public class SumOfMultiplesOf3And5 {
     public void Six() {
         assertEquals(sumNumbersMultipleOf3And5Below(6), 14);
     }
+
+    @Test
+    public void Nine() {
+        assertEquals(sumNumbersMultipleOf3And5Below(9), 23);
+    }
+
 
 }
